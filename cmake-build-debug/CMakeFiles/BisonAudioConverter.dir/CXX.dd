@@ -5,3 +5,5 @@ build CMakeFiles/BisonAudioConverter.dir/MainWindow.cpp.obj: dyndep
 
 build CMakeFiles/BisonAudioConverter.dir/AnotherWindow.cpp.obj: dyndep
 
+build CMakeFiles/BisonAudioConverter.dir/AudioConverter.cpp.obj: dyndep
+

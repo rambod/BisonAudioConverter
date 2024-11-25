@@ -4,11 +4,15 @@ project(BisonAudioConverter)
 set(CMAKE_CXX_STANDARD 23)
 find_package(imgui CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
-
+find_package(nfd CONFIG REQUIRED)
+find_path(MINIAUDIO_INCLUDE_DIRS "miniaudio.h")
 add_executable(BisonAudioConverter main.cpp
         AppState.h
         MainWindow.cpp
         MainWindow.h
         AnotherWindow.cpp
-        AnotherWindow.h)
-target_link_libraries(BisonAudioConverter PRIVATE imgui::imgui glfw opengl32 fmt::fmt)
+        AnotherWindow.h
+        AudioConverter.cpp
+        AudioConverter.h)
+target_link_libraries(BisonAudioConverter PRIVATE imgui::imgui glfw opengl32 fmt::fmt nfd::nfd)
+include_directories(${MINIAUDIO_INCLUDE_DIRS})

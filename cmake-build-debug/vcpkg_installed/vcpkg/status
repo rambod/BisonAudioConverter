@@ -56,3 +56,20 @@ Abi: 2ec7b75f128995b3190e8ea764c37f7d36aaad35fbe9b40b7165f2734e3ad282
 Description: {fmt} is an open-source formatting library providing a fast and safe alternative to C stdio and C++ iostreams.
 Status: install ok installed
 
+Package: miniaudio
+Version: 0.11.21
+Architecture: x64-windows
+Multi-Arch: same
+Abi: deb8959090ac242a3ea7775b45f741e641005967cbb53feb3365024e62eced13
+Description: Audio playback and capture library written in C, in a single source file
+Status: install ok installed
+
+Package: nativefiledialog-extended
+Version: 1.2.1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: e6b7d61b9e4e78d92c4ea6088b4b797f0615460f2bb9c8a390244ee0f13e3453
+Description: Native File Dialog Extended
+Status: install ok installed
+

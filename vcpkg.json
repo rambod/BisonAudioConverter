@@ -8,6 +8,6 @@
     "features": [ "opengl3-binding" , "glfw-binding" ]
   },
     "glfw3",
-    "fmt"
+    "fmt","miniaudio", "nativefiledialog-extended"
   ]
 }

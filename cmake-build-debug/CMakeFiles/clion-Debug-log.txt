@@ -3,7 +3,7 @@
 Detecting compiler hash for triplet x64-windows...
 Compiler found: D:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/cl.exe
 All requested packages are currently installed.
-Total install time: 700 ns
+Total install time: 1.5 us
 The package fmt provides CMake targets:
 
     find_package(fmt CONFIG REQUIRED)
@@ -30,7 +30,18 @@ imgui provides CMake targets:
   find_package(imgui CONFIG REQUIRED)
   target_link_libraries(main PRIVATE imgui::imgui)
 
+miniaudio is header-only and can be used from CMake via:
+
+  find_path(MINIAUDIO_INCLUDE_DIRS "miniaudio.h")
+  target_include_directories(main PRIVATE ${MINIAUDIO_INCLUDE_DIRS})
+
+nativefiledialog-extended provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(nfd CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE nfd::nfd)
+
 -- Running vcpkg install - done
--- Configuring done (2.8s)
--- Generating done (1.0s)
+-- Configuring done (2.9s)
+-- Generating done (0.5s)
 -- Build files have been written to: C:/Users/rambo/CLionProjects/BisonAudioConverter/cmake-build-debug
