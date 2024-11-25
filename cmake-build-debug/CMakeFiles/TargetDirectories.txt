@@ -1,0 +1,3 @@
+C:/Users/rambo/CLionProjects/BisonAudioConverter/cmake-build-debug/CMakeFiles/BisonAudioConverter.dir
+C:/Users/rambo/CLionProjects/BisonAudioConverter/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/rambo/CLionProjects/BisonAudioConverter/cmake-build-debug/CMakeFiles/rebuild_cache.dir
