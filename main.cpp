@@ -19,7 +19,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "Bison Audio Converter", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(700, 500, "Bison Audio Converter", NULL, NULL);
     if (!window) {
         glfwTerminate();
         return -1;
@@ -39,6 +39,56 @@ int main() {
     AppState state;
     MainWindow mainWindow;
     AnotherWindow anotherWindow;
+
+    // Set rounded corners for windows
+    ImGuiStyle& style = ImGui::GetStyle();
+    style.WindowRounding = 5.0f;
+    style.WindowBorderSize = 1.0f;
+    style.FrameRounding = 3.0f;
+    style.FrameBorderSize = 1.0f;
+    style.ScrollbarRounding = 5.0f;
+
+    //set button style
+    style.Colors[ImGuiCol_Button] = ImVec4(0.1f, 0.1f, 0.1f, 1.0f);
+    style.Colors[ImGuiCol_ButtonHovered] = ImVec4(0.2f, 0.2f, 0.2f, 1.0f);
+    style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.3f, 0.3f, 0.3f, 1.0f);
+
+    //set slider style
+    style.Colors[ImGuiCol_SliderGrab] = ImVec4(0.1f, 0.1f, 0.1f, 1.0f);
+    style.Colors[ImGuiCol_SliderGrabActive] = ImVec4(0.2f, 0.2f, 0.2f, 1.0f);
+
+    //set checkbox style
+    style.Colors[ImGuiCol_CheckMark] = ImVec4(0.1f, 0.1f, 0.1f, 1.0f);
+
+    //set header style
+    style.Colors[ImGuiCol_Header] = ImVec4(0.1f, 0.1f, 0.1f, 1.0f);
+    style.Colors[ImGuiCol_HeaderHovered] = ImVec4(0.2f, 0.2f, 0.2f, 1.0f);
+
+    //set frame style
+    style.Colors[ImGuiCol_FrameBg] = ImVec4(0.1f, 0.1f, 0.1f, 1.0f);
+    style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.2f, 0.2f, 0.2f, 1.0f);
+    style.Colors[ImGuiCol_FrameBgActive] = ImVec4(0.3f, 0.3f, 0.3f, 1.0f);
+
+    //set button text style
+    style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
+
+    //set window text style
+    style.Colors[ImGuiCol_WindowBg] = ImVec4(0.1f, 0.1f, 0.1f, 1.0f);
+
+    //set button size
+    style.FramePadding = ImVec2(10.0f, 10.0f);
+    style.ItemSpacing = ImVec2(10.0f, 10.0f);
+    style.ItemInnerSpacing = ImVec2(10.0f, 10.0f);
+
+    //set window size
+    style.WindowPadding = ImVec2(10.0f, 10.0f);
+    style.WindowMinSize = ImVec2(300.0f, 300.0f);
+    style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
+
+    //set slider size
+    style.GrabMinSize = 20.0f;
+
+
 
     // Main loop
     while (!glfwWindowShouldClose(window)) {
