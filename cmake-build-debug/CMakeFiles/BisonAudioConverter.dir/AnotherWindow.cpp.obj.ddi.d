@@ -207,4 +207,11 @@ CMakeFiles\BisonAudioConverter.dir\AnotherWindow.cpp.obj.ddi: \
   D:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\tuple \
   D:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xpolymorphic_allocator.h \
   D:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\cctype \
-  C:\Program\ Files\ (x86)\Windows\ Kits\10\Include\10.0.26100.0\ucrt\ctype.h
+  C:\Program\ Files\ (x86)\Windows\ Kits\10\Include\10.0.26100.0\ucrt\ctype.h \
+  D:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\atomic \
+  D:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xatomic_wait.h \
+  D:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xthreads.h \
+  D:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\__msvc_threads_core.hpp \
+  D:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xtimec.h \
+  D:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\ctime \
+  C:\Program\ Files\ (x86)\Windows\ Kits\10\Include\10.0.26100.0\ucrt\time.h

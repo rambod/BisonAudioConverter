@@ -7,6 +7,7 @@
 
 #include "imgui.h"
 #include <string>
+#include <atomic>
 
 struct AppState {
     bool show_demo_window = false;
@@ -16,7 +17,7 @@ struct AppState {
     // New State Variables
     std::string input_directory;
     std::string output_directory;
-    bool is_converting = false;
+    std::atomic<bool> is_converting = false;
     std::string log;
 };
 
