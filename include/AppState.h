@@ -10,7 +10,7 @@
 #include <atomic>
 
 struct AppState {
-    bool show_demo_window = true;
+    bool show_demo_window = false;
     bool show_another_window = true;
     ImVec4 clear_color = ImVec4(0.1f, 0.1f, 0.1f, 1.0f);
 
@@ -19,7 +19,9 @@ struct AppState {
     std::atomic<bool> is_converting = false;
     std::string log;
     float progress = 0.0f; // Track progress
+    std::string output_format = "wav"; // Default output format
 };
+
 
 
 #endif //BISONAUDIOCONVERTER_APPSTATE_H

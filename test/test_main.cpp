@@ -6,7 +6,7 @@
 
 #include "../include/AppState.h"
 #include "../include/MainWindow.h"
-#include "../include/AnotherWindow.h"
+#include "../include/LogWindow.h"
 
 int main() {
     fmt::print("Hello, {}!\nThis software is written by {}", "world", "Rambod Ghashghai");

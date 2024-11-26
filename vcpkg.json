@@ -1,13 +1,10 @@
 {
-  "name"  : "bisonaudioconverter",
+  "name" : "bisonaudioconverter",
   "version" : "0.0.1",
   "description" : "A simple audio converter",
   "license" : "MIT",
   "dependencies" : [ {
     "name" : "imgui",
-    "features": [ "opengl3-binding" , "glfw-binding" ]
-  },
-    "glfw3",
-    "fmt","miniaudio", "nativefiledialog-extended"
-  ]
+    "features" : [ "opengl3-binding", "glfw-binding" ]
+  }, "glfw3", "fmt", "miniaudio", "nativefiledialog-extended", "libvorbis", "mp3lame"]
 }

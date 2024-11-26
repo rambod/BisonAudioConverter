@@ -7,7 +7,7 @@
 #include "format"
 #include "../include/AppState.h"
 #include "../include/MainWindow.h"
-#include "../include/AnotherWindow.h"
+#include "../include/LogWindow.h"
 
 int main() {
     fmt::print("Hello, {}!\nThis software is written by {}", "world", "Rambod Ghashghai");
@@ -20,7 +20,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(700, 500, "Bison Audio Converter", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(1300, 500, "Bison Audio Converter", NULL, NULL);
     if (!window) {
         glfwTerminate();
         return -1;
@@ -39,7 +39,7 @@ int main() {
     // App State and Windows
     AppState state;
     MainWindow mainWindow;
-    AnotherWindow anotherWindow;
+    LogWindow anotherWindow;
 
     // Set rounded corners for windows
     ImGuiStyle& style = ImGui::GetStyle();

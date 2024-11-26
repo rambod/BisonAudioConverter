@@ -30,6 +30,15 @@ void MainWindow::Render(AppState &state) {
     }
     ImGui::Text("Output Directory: %s", state.output_directory.c_str());
 
+    // Output Format
+    if (!state.is_converting) {
+        const char* formats[] = { "wav", "mp3", "ogg" };
+        static int current_format = 0;
+        if (ImGui::Combo("Output Format", &current_format, formats, IM_ARRAYSIZE(formats))) {
+            state.output_format = formats[current_format];
+        }
+    }
+
     // Conversion Progress
     if (state.is_converting) {
         ImGui::Text("Conversion in progress...");
@@ -61,7 +70,6 @@ void MainWindow::Render(AppState &state) {
         }
     }
 
-
-
     ImGui::End();
 }
+
