@@ -139,10 +139,10 @@ int main() {
         ImGuiViewport* viewport = ImGui::GetMainViewport();
         ImGui::SetNextWindowPos(ImVec2(viewport->Pos.x, viewport->Pos.y + viewport->Size.y - 30));
         ImGui::SetNextWindowSize(ImVec2(viewport->Size.x, 30));
-        ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.1f, 0.1f, 0.8f, 1.0f)); // Dark background
+        ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.1f, 0.1f, 0.1f, 1.0f)); // Dark background
         ImGui::Begin("Footer", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
         ImGui::PopStyleColor();
-        ImGui::Text("This is a footer at the bottom of the screen.");
+        ImGui::Text("Bison Audio Converter © 2024 - All Rights Reserved Developed by: Rambod Ghashghai");
         ImGui::End();
 
 

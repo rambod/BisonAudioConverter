@@ -4,7 +4,7 @@
 #include <thread>
 
 void MainWindow::Render(AppState &state) {
-    ImGui::Begin("Audio Converter");
+    ImGui::Begin("Bulk Audio Converter");
 
     // Input Directory
     if (!state.is_converting) {

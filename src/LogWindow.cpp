@@ -6,7 +6,7 @@
 
 void LogWindow::Render(AppState &state) {
     if (state.show_another_window) {
-        ImGui::Begin("Log", &state.show_another_window);
+        ImGui::Begin("Log Window", &state.show_another_window);
         ImGui::Text("Conversion Log!");
         // Log Window
         static bool autoScroll = true;
