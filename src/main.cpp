@@ -40,6 +40,7 @@ int main() {
     AppState state;
     MainWindow mainWindow;
     LogWindow anotherWindow;
+    SingleFileConverterWindow singleFileConverterWindow;
 
     // Set rounded corners for windows
     ImGuiStyle& style = ImGui::GetStyle();
@@ -134,6 +135,7 @@ int main() {
             ImGui::EndMainMenuBar();
         }
 
+        singleFileConverterWindow.Render(state);
         ImGuiViewport* viewport = ImGui::GetMainViewport();
         ImGui::SetNextWindowPos(ImVec2(viewport->Pos.x, viewport->Pos.y + viewport->Size.y - 30));
         ImGui::SetNextWindowSize(ImVec2(viewport->Size.x, 30));

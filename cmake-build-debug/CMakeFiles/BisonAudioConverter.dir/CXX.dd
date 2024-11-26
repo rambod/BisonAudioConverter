@@ -7,3 +7,5 @@ build CMakeFiles/BisonAudioConverter.dir/src/LogWindow.cpp.obj: dyndep
 
 build CMakeFiles/BisonAudioConverter.dir/src/AudioConverter.cpp.obj: dyndep
 
+build CMakeFiles/BisonAudioConverter.dir/src/SingleFileConverterWindow.cpp.obj: dyndep
+

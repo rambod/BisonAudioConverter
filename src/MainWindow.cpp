@@ -54,8 +54,8 @@ void MainWindow::Render(AppState &state) {
                 float processedFiles = 0.0f;
 
                 for (const auto& inputFile : audioFiles) {
-                    std::string outputFile = AudioConverter::CreateOutputPath(state.input_directory, inputFile, state.output_directory);
-                    if (AudioConverter::ConvertAudio(inputFile, outputFile)) {
+                    std::string outputFile = AudioConverter::CreateOutputPath(state.input_directory, inputFile, state.output_directory, state.output_format);
+                    if (AudioConverter::ConvertAudio(inputFile, outputFile, state.output_format)) {
                         state.log += "Converted: " + inputFile + "\n";
                     } else {
                         state.log += "Skipped (unsupported): " + inputFile + "\n";
@@ -67,6 +67,7 @@ void MainWindow::Render(AppState &state) {
                 state.log += "Conversion completed.\n";
                 state.is_converting = false;
             }).detach();
+
         }
     }
 

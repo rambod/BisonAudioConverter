@@ -17,5 +17,7 @@ add_executable(BisonAudioConverter src/main.cpp
         src/LogWindow.cpp
         include/LogWindow.h
         src/AudioConverter.cpp
-        include/AudioConverter.h)
+        include/AudioConverter.h
+        src/SingleFileConverterWindow.cpp
+        include/SingleFileConverterWindow.h)
 target_link_libraries(BisonAudioConverter PRIVATE imgui::imgui glfw opengl32 fmt::fmt nfd::nfd mp3lame::mp3lame Vorbis::vorbisfile Vorbis::vorbis Vorbis::vorbisenc)

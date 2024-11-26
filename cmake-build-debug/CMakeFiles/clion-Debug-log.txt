@@ -3,7 +3,7 @@
 Detecting compiler hash for triplet x64-windows...
 Compiler found: D:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/cl.exe
 All requested packages are currently installed.
-Total install time: 200 ns
+Total install time: 300 ns
 The package fmt provides CMake targets:
 
     find_package(fmt CONFIG REQUIRED)
@@ -61,6 +61,6 @@ nativefiledialog-extended provides CMake targets:
   target_link_libraries(main PRIVATE nfd::nfd)
 
 -- Running vcpkg install - done
--- Configuring done (2.7s)
+-- Configuring done (2.9s)
 -- Generating done (0.0s)
 -- Build files have been written to: C:/Users/rambo/CLionProjects/BisonAudioConverter/cmake-build-debug

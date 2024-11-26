@@ -11,10 +11,12 @@
 
 #include "AppState.h"
 #include "imgui.h"
+#include "SingleFileConverterWindow.h"
 
 class MainWindow {
 public:
     static void Render(AppState& state);
+
 };
 
 #endif // MAIN_WINDOW_H
