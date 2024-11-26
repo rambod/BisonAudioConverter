@@ -7,7 +7,7 @@
 namespace fs = std::filesystem;
 
 std::vector<std::string> AudioConverter::FindAudioFiles(const std::string& directory) {
-    const std::vector<std::string> SUPPORTED_EXTENSIONS = {".wav"};
+    const std::vector<std::string> SUPPORTED_EXTENSIONS = {".wav", ".mp3"};
     std::vector<std::string> audioFiles;
 
     for (const auto& entry : fs::recursive_directory_iterator(directory)) {
