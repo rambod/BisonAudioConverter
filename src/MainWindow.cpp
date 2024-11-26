@@ -32,7 +32,7 @@ void MainWindow::Render(AppState &state) {
 
     // Output Format
     if (!state.is_converting) {
-        const char* formats[] = { "wav", "mp3", "ogg" };
+        const char* formats[] = { "wav", "mp3" };
         static int current_format = 0;
         if (ImGui::Combo("Output Format", &current_format, formats, IM_ARRAYSIZE(formats))) {
             state.output_format = formats[current_format];
