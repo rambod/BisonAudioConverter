@@ -6,13 +6,13 @@ find_package(imgui CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 find_package(nfd CONFIG REQUIRED)
 find_path(MINIAUDIO_INCLUDE_DIRS "miniaudio.h")
-add_executable(BisonAudioConverter main.cpp
-        AppState.h
-        MainWindow.cpp
-        MainWindow.h
-        AnotherWindow.cpp
-        AnotherWindow.h
-        AudioConverter.cpp
-        AudioConverter.h)
+add_executable(BisonAudioConverter src/main.cpp
+        include/AppState.h
+        src/MainWindow.cpp
+        include/MainWindow.h
+        src/AnotherWindow.cpp
+        include/AnotherWindow.h
+        src/AudioConverter.cpp
+        include/AudioConverter.h)
 target_link_libraries(BisonAudioConverter PRIVATE imgui::imgui glfw opengl32 fmt::fmt nfd::nfd)
 include_directories(${MINIAUDIO_INCLUDE_DIRS})
