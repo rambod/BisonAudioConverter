@@ -4,6 +4,9 @@
 #include <thread>
 
 void MainWindow::Render(AppState &state) {
+    // Set the default position of the window
+    ImVec2 defaultPos  = ImVec2(50, 50); // Fixed position
+    ImGui::SetNextWindowPos(defaultPos, ImGuiCond_FirstUseEver);
     ImGui::Begin("Bulk Audio Converter");
 
     // Input Directory

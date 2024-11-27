@@ -7,6 +7,9 @@
 namespace fs = std::filesystem;
 
 void SingleFileConverterWindow::Render(AppState& state) {
+    // Set the default position of the window
+    ImVec2 defaultPos  = ImVec2(500, 100); // Fixed position
+    ImGui::SetNextWindowPos(defaultPos, ImGuiCond_FirstUseEver);
     ImGui::Begin("Single File Converter");
 
     static std::string inputFile;

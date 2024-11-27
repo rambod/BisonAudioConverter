@@ -8,6 +8,8 @@
 #include "../include/AppState.h"
 #include "../include/MainWindow.h"
 #include "../include/LogWindow.h"
+#include "../include/AboutWindow.h"
+#include "../include/HelpWindow.h"
 
 int main() {
     fmt::print("Hello, {}!\nThis software is written by {}", "world", "Rambod Ghashghai");
@@ -118,29 +120,57 @@ int main() {
 
         if (state.show_demo_window) ImGui::ShowDemoWindow(&state.show_demo_window);
 
-        MainWindow::Render(state);
-        anotherWindow.Render(state);
 
-        // Render the menu bar directly
-        if (ImGui::BeginMainMenuBar()) { // Main application menu bar
+
+        if (ImGui::BeginMainMenuBar()) {
             if (ImGui::BeginMenu("File")) {
-                if (ImGui::MenuItem("Open..", "Ctrl+O")) {
-                    std::cout << std::format("We Clicked on open") << std::endl;
+                if (ImGui::MenuItem("New", "Ctrl+N")) {
+                    state.input_directory.clear();
+                    state.output_directory.clear();
+                    state.log.clear();
                 }
                 if (ImGui::MenuItem("Exit", "Ctrl+Q")) {
                     glfwSetWindowShouldClose(window, true);
                 }
                 ImGui::EndMenu();
             }
-            if (ImGui::BeginMenu("Help")) {
-                if (ImGui::MenuItem("About")) {
-                    std::cout << "About selected" << std::endl;
+
+            if (ImGui::BeginMenu("View")) {
+                if (ImGui::MenuItem("Main Window", nullptr, state.show_main_window)) {
+                    state.show_main_window = !state.show_main_window;
+                }
+                if (ImGui::MenuItem("Log Window", nullptr, state.show_log_window)) {
+                    state.show_log_window = !state.show_log_window;
                 }
                 ImGui::EndMenu();
             }
+
+            if (ImGui::BeginMenu("Help")) {
+                if (ImGui::MenuItem("About")) {
+                    state.show_about_window = !state.show_about_window;
+                }
+                if (ImGui::MenuItem("Help")) {
+                    state.show_help_window = !state.show_help_window;
+                }
+                ImGui::EndMenu();
+            }
+
             ImGui::EndMainMenuBar();
         }
 
+        if (state.show_main_window) {
+            MainWindow::Render(state);
+        }
+        if (state.show_log_window) {
+            anotherWindow.Render(state);
+        }
+        if (state.show_about_window) {
+            AboutWindow::Render(state);
+        }
+
+        if (state.show_help_window) {
+            HelpWindow::Render(state);
+        }
         singleFileConverterWindow.Render(state);
         ImGuiViewport* viewport = ImGui::GetMainViewport();
         ImGui::SetNextWindowPos(ImVec2(viewport->Pos.x, viewport->Pos.y + viewport->Size.y - 30));

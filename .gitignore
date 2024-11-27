@@ -1,0 +1,42 @@
+# Ignore build directories
+cmake-build*/
+
+# Ignore Visual Studio Code and JetBrains IDE files
+.idea/
+.vscode/
+*.iml
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore log and temporary files
+*.log
+*.tmp
+*.bak
+
+# Ignore executable and object files
+*.exe
+*.dll
+*.so
+*.o
+*.obj
+
+# Ignore vcpkg install folder if any
+vcpkg_installed/
+
+# Ignore CMake cache files
+CMakeCache.txt
+CMakeFiles/
+
+# Ignore compiled assets
+*.a
+*.lib
+*.pdb
+*.exp
+
+# Ignore Markdown preview cache
+__MACOSX/
+
+# Ignore other IDE-specific files
+*.swp

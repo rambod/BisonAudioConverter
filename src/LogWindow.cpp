@@ -6,6 +6,9 @@
 
 void LogWindow::Render(AppState &state) {
     if (state.show_another_window) {
+        // Set the default position of the window
+        ImVec2 defaultPos  = ImVec2(900, 50); // Fixed position
+        ImGui::SetNextWindowPos(defaultPos, ImGuiCond_FirstUseEver);
         ImGui::Begin("Log Window", &state.show_another_window);
         ImGui::Text("Conversion Log!");
         // Log Window
