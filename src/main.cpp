@@ -10,10 +10,116 @@
 #include "../include/LogWindow.h"
 #include "../include/AboutWindow.h"
 #include "../include/HelpWindow.h"
+#include <png.h>
+
+
+void SetWindowIcon(GLFWwindow* window, const char* iconPath) {
+    FILE* fp = nullptr;
+#ifdef _WIN32
+    errno_t err = fopen_s(&fp, iconPath, "rb");
+    if (err != 0 || fp == nullptr) {
+        std::cerr << "Failed to open icon file: " << iconPath << std::endl;
+        return;
+    }
+#else
+    fp = fopen(iconPath, "rb");
+    if (!fp) {
+        std::cerr << "Failed to open icon file: " << iconPath << std::endl;
+        return;
+    }
+#endif
+
+    png_structp png = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
+    if (!png) {
+        std::cerr << "Failed to create png read struct" << std::endl;
+        fclose(fp);
+        return;
+    }
+
+    png_infop info = png_create_info_struct(png);
+    if (!info) {
+        std::cerr << "Failed to create png info struct" << std::endl;
+        png_destroy_read_struct(&png, NULL, NULL);
+        fclose(fp);
+        return;
+    }
+
+    if (setjmp(png_jmpbuf(png))) {
+        std::cerr << "Error during png creation" << std::endl;
+        png_destroy_read_struct(&png, &info, NULL);
+        fclose(fp);
+        return;
+    }
+
+    png_init_io(png, fp);
+    png_read_info(png, info);
+
+    int width = png_get_image_width(png, info);
+    int height = png_get_image_height(png, info);
+    png_byte color_type = png_get_color_type(png, info);
+    png_byte bit_depth = png_get_bit_depth(png, info);
+
+    // Read any color_type into 8bit depth, RGBA format.
+    // See http://www.libpng.org/pub/png/libpng-manual.txt
+
+    if (bit_depth == 16)
+        png_set_strip_16(png);
+
+    if (color_type == PNG_COLOR_TYPE_PALETTE)
+        png_set_palette_to_rgb(png);
+
+    // PNG_COLOR_TYPE_GRAY_ALPHA is always 8 or 16bit depth.
+    if (color_type == PNG_COLOR_TYPE_GRAY && bit_depth < 8)
+        png_set_expand_gray_1_2_4_to_8(png);
+
+    if (png_get_valid(png, info, PNG_INFO_tRNS))
+        png_set_tRNS_to_alpha(png);
+
+    // These color_type don't have an alpha channel then fill it with 0xff.
+    if (color_type == PNG_COLOR_TYPE_RGB ||
+        color_type == PNG_COLOR_TYPE_GRAY ||
+        color_type == PNG_COLOR_TYPE_PALETTE)
+        png_set_filler(png, 0xFF, PNG_FILLER_AFTER);
+
+    if (color_type == PNG_COLOR_TYPE_GRAY ||
+        color_type == PNG_COLOR_TYPE_GRAY_ALPHA)
+        png_set_gray_to_rgb(png);
+
+    png_read_update_info(png, info);
+
+    png_bytep* row_pointers = (png_bytep*)malloc(sizeof(png_bytep) * height);
+    for (int y = 0; y < height; y++) {
+        row_pointers[y] = (png_byte*)malloc(png_get_rowbytes(png, info));
+    }
+
+    png_read_image(png, row_pointers);
+
+    fclose(fp);
+
+    // Convert row pointers to a single buffer
+    unsigned char* pixels = new unsigned char[width * height * 4];
+    for (int y = 0; y < height; y++) {
+        memcpy(pixels + (y * width * 4), row_pointers[y], width * 4);
+        free(row_pointers[y]);
+    }
+    free(row_pointers);
+
+    png_destroy_read_struct(&png, &info, NULL);
+
+    // Set GLFWimage
+    GLFWimage icon;
+    icon.width = width;
+    icon.height = height;
+    icon.pixels = pixels;
+
+    // Apply icon
+    glfwSetWindowIcon(window, 1, &icon);
+
+    // Cleanup
+    delete[] pixels;
+}
 
 int main() {
-    fmt::print("Hello, {}!\nThis software is written by {}", "world", "Rambod Ghashghai");
-
     if (!glfwInit()) {
         return -1;
     }
@@ -27,6 +133,9 @@ int main() {
         glfwTerminate();
         return -1;
     }
+
+    SetWindowIcon(window, "resources/icon.png");
+
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);
 
@@ -123,7 +232,7 @@ int main() {
 
 
         if (ImGui::BeginMainMenuBar()) {
-            if (ImGui::BeginMenu("File")) {
+            if (ImGui::BeginMenu("File1")) {
                 if (ImGui::MenuItem("New", "Ctrl+N")) {
                     state.input_directory.clear();
                     state.output_directory.clear();

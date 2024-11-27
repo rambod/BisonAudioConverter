@@ -6,5 +6,5 @@
   "dependencies" : [ {
     "name" : "imgui",
     "features" : [ "opengl3-binding", "glfw-binding" ]
-  }, "glfw3", "fmt", "miniaudio", "nativefiledialog-extended", "libvorbis", "mp3lame"]
+  }, "glfw3", "fmt", "miniaudio", "nativefiledialog-extended", "libvorbis", "mp3lame" , "libpng" ]
 }

@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <iostream>
 #include "lame/lame.h"
+#include <cstdio>
 
 namespace fs = std::filesystem;
 
@@ -40,12 +41,24 @@ bool AudioConverter::ConvertToMP3(const std::string& inputFile, const std::strin
         return false;
     }
 
-    FILE* mp3File = fopen(outputFile.c_str(), "wb");
+    FILE* mp3File = nullptr;
+
+    // Use fopen_s on Windows (MSVC), fopen elsewhere
+#ifdef _WIN32
+    errno_t err = fopen_s(&mp3File, outputFile.c_str(), "wb");
+    if (err != 0 || mp3File == nullptr) {
+        std::cerr << "Failed to open MP3 file for writing: " << outputFile << "\n";
+        ma_decoder_uninit(&decoder);
+        return false;
+    }
+#else
+    mp3File = fopen(outputFile.c_str(), "wb");
     if (!mp3File) {
         std::cerr << "Failed to open MP3 file for writing: " << outputFile << "\n";
         ma_decoder_uninit(&decoder);
         return false;
     }
+#endif
 
     lame_t lame = lame_init();
     lame_set_num_channels(lame, decoder.outputChannels);
