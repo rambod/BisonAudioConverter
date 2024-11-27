@@ -232,7 +232,7 @@ int main() {
 
 
         if (ImGui::BeginMainMenuBar()) {
-            if (ImGui::BeginMenu("File1")) {
+            if (ImGui::BeginMenu("File")) {
                 if (ImGui::MenuItem("New", "Ctrl+N")) {
                     state.input_directory.clear();
                     state.output_directory.clear();
