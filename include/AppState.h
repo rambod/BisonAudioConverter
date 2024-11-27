@@ -12,6 +12,11 @@
 struct AppState {
     bool show_demo_window = false;
     bool show_another_window = true;
+    bool show_about_window = false;
+    bool show_help_window = false;
+    bool show_main_window = true;
+    bool show_log_window = true;
+
     ImVec4 clear_color = ImVec4(0.1f, 0.1f, 0.1f, 1.0f);
 
     std::string input_directory;
