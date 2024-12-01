@@ -8,6 +8,9 @@ find_package(nfd CONFIG REQUIRED)
 find_package(mp3lame CONFIG REQUIRED)
 find_package(Vorbis CONFIG REQUIRED)
 find_package(PNG REQUIRED)
+find_package(SFML COMPONENTS system window graphics audio CONFIG REQUIRED)
+find_package(ImGui-SFML CONFIG REQUIRED)
+
 
 find_path(MINIAUDIO_INCLUDE_DIRS "miniaudio.h")
 include_directories(${MINIAUDIO_INCLUDE_DIRS})
@@ -25,5 +28,7 @@ add_executable(BisonAudioConverter src/main.cpp
         src/AboutWindow.cpp
         include/AboutWindow.h
         src/HelpWindow.cpp
-        include/HelpWindow.h)
-target_link_libraries(BisonAudioConverter PRIVATE imgui::imgui glfw opengl32 fmt::fmt nfd::nfd mp3lame::mp3lame Vorbis::vorbisfile Vorbis::vorbis Vorbis::vorbisenc PNG::PNG)
+        include/HelpWindow.h
+        src/AppStyle.cpp
+        include/AppStyle.h)
+target_link_libraries(BisonAudioConverter PRIVATE imgui::imgui fmt::fmt nfd::nfd mp3lame::mp3lame Vorbis::vorbisfile Vorbis::vorbis Vorbis::vorbisenc PNG::PNG ImGui-SFML::ImGui-SFML sfml-system sfml-network sfml-graphics sfml-window sfml-audio)
