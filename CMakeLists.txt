@@ -3,7 +3,6 @@ project(BisonAudioConverter)
 
 set(CMAKE_CXX_STANDARD 23)
 find_package(imgui CONFIG REQUIRED)
-find_package(fmt CONFIG REQUIRED)
 find_package(nfd CONFIG REQUIRED)
 find_package(mp3lame CONFIG REQUIRED)
 find_package(Vorbis CONFIG REQUIRED)
@@ -31,4 +30,4 @@ add_executable(BisonAudioConverter src/main.cpp
         include/HelpWindow.h
         src/AppStyle.cpp
         include/AppStyle.h)
-target_link_libraries(BisonAudioConverter PRIVATE imgui::imgui fmt::fmt nfd::nfd mp3lame::mp3lame Vorbis::vorbisfile Vorbis::vorbis Vorbis::vorbisenc PNG::PNG ImGui-SFML::ImGui-SFML sfml-system sfml-network sfml-graphics sfml-window sfml-audio)
+target_link_libraries(BisonAudioConverter PRIVATE imgui::imgui nfd::nfd mp3lame::mp3lame Vorbis::vorbisfile Vorbis::vorbis Vorbis::vorbisenc PNG::PNG ImGui-SFML::ImGui-SFML sfml-system sfml-network sfml-graphics sfml-window sfml-audio)
