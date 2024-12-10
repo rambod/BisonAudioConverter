@@ -11,8 +11,8 @@ void AboutWindow::Render(AppState& state) {
         ImGui::Separator();
         ImGui::Text("Support Development:");
         ImGui::Text("Donate to support future features:");
-        if (ImGui::Selectable("My Wallet Address: abc123xyz456", false)) {
-            ImGui::SetClipboardText("abc123xyz456"); // Copies to clipboard
+        if (ImGui::Selectable("My Solana Wallet Address: 5uZWYVVcEVjeWKYKhwAxPSgkpHvgvNTjMvi7NQ7Si3cV", false)) {
+            ImGui::SetClipboardText("5uZWYVVcEVjeWKYKhwAxPSgkpHvgvNTjMvi7NQ7Si3cV"); // Copies to clipboard
         }
         if (ImGui::Button("Close")) {
             state.show_about_window = false;

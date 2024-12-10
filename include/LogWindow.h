@@ -1,5 +1,5 @@
 //
-// Created by rambo on 11/25/2024.
+// Created by rambod on 11/25/2024.
 //
 
 #ifndef BISONAUDIOCONVERTER_LOGWINDOW_H

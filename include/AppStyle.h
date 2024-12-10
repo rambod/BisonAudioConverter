@@ -1,5 +1,5 @@
 //
-// Created by rambo on 12/1/2024.
+// Created by rambod on 12/1/2024.
 //
 
 #ifndef BISONAUDIOCONVERTER_APPSTYLE_H
