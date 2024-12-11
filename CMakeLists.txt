@@ -30,4 +30,5 @@ add_executable(BisonAudioConverter src/main.cpp
         include/HelpWindow.h
         src/AppStyle.cpp
         include/AppStyle.h)
+
 target_link_libraries(BisonAudioConverter PRIVATE imgui::imgui nfd::nfd mp3lame::mp3lame Vorbis::vorbisfile Vorbis::vorbis Vorbis::vorbisenc PNG::PNG ImGui-SFML::ImGui-SFML sfml-system sfml-network sfml-graphics sfml-window sfml-audio)

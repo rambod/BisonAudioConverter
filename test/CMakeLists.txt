@@ -13,6 +13,7 @@ add_executable(BisonAudioConverter src/main.cpp
         src/AnotherWindow.cpp
         include/AnotherWindow.h
         src/AudioConverter.cpp
-        include/AudioConverter.h)
+        include/AudioConverter.h
+        resources/app_icon.rc)
 target_link_libraries(BisonAudioConverter PRIVATE imgui::imgui glfw opengl32 fmt::fmt nfd::nfd)
 include_directories(${MINIAUDIO_INCLUDE_DIRS})
