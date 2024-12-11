@@ -1,26 +1,25 @@
-
 # Bison Audio Converter
 
-**Bison Audio Converter** is a cross-platform audio file conversion tool written in **C++** with a user-friendly GUI built using **ImGui**. The tool allows users to convert audio files to different formats while providing features like logging and streamlined workflow.
+**Bison Audio Converter** is a cross-platform audio file conversion tool written in **C++** with a user-friendly GUI built using **ImGui** and **SFML**. The tool allows users to convert audio files to different formats while providing features like logging and streamlined workflow.
 
 ---
 
 ## Features
 
 - **Audio Conversion**:
-  - Supports WAV, MP3, and other formats (extensible via plugins).
-  - Uses high-performance libraries like **libvorbis**, **lame**, and **miniaudio**.
+  - Supports conversion between **WAV** and **MP3** formats.
+  - Uses high-performance libraries like **miniaudio** and **LAME** for encoding.
 
 - **ImGui-based GUI**:
-  - Lightweight and responsive interface.
-  - Real-time conversion logs.
+  - Lightweight and responsive interface built with **ImGui** and **SFML**.
+  - Real-time conversion logs for easy feedback and debugging.
 
 - **Cross-platform**:
-  - Windows and Linux support.
+  - Supports **Windows** and **Linux**.
 
 - **Customizable**:
   - Default window positions and flexible layouts.
-  - Easy to extend with new features.
+  - Easy to extend with new features and formats.
 
 ---
 
@@ -28,16 +27,16 @@
 
 ### Prerequisites
 
-Ensure the following tools are installed:
+Ensure the following tools and libraries are installed:
 
 - **CMake** (3.16 or higher)
 - **LLVM/Clang** (or your preferred compiler)
 - **vcpkg** for managing dependencies
 
-Install the required libraries with vcpkg:
+Install the required libraries with **vcpkg**:
 
 ```bash
-vcpkg install imgui["opengl3-binding", "glfw-binding"] fmt glfw3 libvorbis mp3lame
+vcpkg install imgui[sfml-binding] sfml fmt libmp3lame miniaudio
 ```
 
 ---
@@ -50,19 +49,19 @@ vcpkg install imgui["opengl3-binding", "glfw-binding"] fmt glfw3 libvorbis mp3la
    cd BisonAudioConverter
    ```
 
-2. Set up the build directory and generate files:
+2. Set up the build directory and generate the build files:
    ```bash
-   cmake -S . -B cmake-build-debug -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
+   cmake -S . -B cmake-build-release -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
    ```
 
 3. Build the project:
    ```bash
-   cmake --build cmake-build-debug
+   cmake --build cmake-build-release
    ```
 
 4. Run the executable:
    ```bash
-   ./cmake-build-debug/BisonAudioConverter
+   ./cmake-build-release/BisonAudioConverter
    ```
 
 ---
@@ -70,20 +69,21 @@ vcpkg install imgui["opengl3-binding", "glfw-binding"] fmt glfw3 libvorbis mp3la
 ## Usage
 
 ### Log Window
+
 - View real-time logs during conversion for debugging and feedback.
-- Position is customizable in `LogWindow.cpp`.
+- Log position is customizable in `MainWindow.cpp`.
 
 ### Supported Formats
-- Default supported formats:
-  - `.wav` (Input)
-  - `.mp3` (Output)
+
+- **Input Format**: `.wav`
+- **Output Formats**: `.wav`, `.mp3`
 
 ---
 
 ## Screenshots
 
 | **Main Window**                            | **Log Window**                            |
-|--------------------------------------------|--------------------------------------------|
+|--------------------------------------------|-------------------------------------------|
 | ![Main Window](screenshots/main_window.png) | ![Log Window](screenshots/log_window.png) |
 
 ---
@@ -114,5 +114,8 @@ This project is licensed under the **MIT License**.
 ## Credits
 
 - **ImGui**: Used for the GUI.
-- **libvorbis**, **lame**, **fmt**: Audio and utility libraries.
+- **SFML**: For windowing and graphics.
+- **miniaudio**: For audio decoding.
+- **LAME**: For MP3 encoding.
+- **fmt**: For formatted output.
 - **Rambod Ghashghai**: Developer.
