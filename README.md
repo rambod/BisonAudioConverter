@@ -1,12 +1,17 @@
 # Bison Audio Converter
 
-**Bison Audio Converter** is a cross-platform audio file conversion tool written in **C++** with a user-friendly GUI built using **ImGui** and **SFML**. The tool allows users to convert audio files to different formats while providing features like logging and streamlined workflow.
+**Bison Audio Converter** is a cross-platform audio file conversion tool written in **C++** with a user-friendly GUI built using **ImGui** and **SFML**. The tool is designed for **batch and bulk audio conversion**, making it ideal for large-scale tasks where preserving directory structures is crucial.
 
 ---
 
 ## Features
 
-- **Audio Conversion**:
+- **Batch and Bulk Audio Conversion**:
+  - Convert entire directories and subdirectories containing thousands (even millions) of audio files.
+  - Automatically **mimics the input directory structure** in the output directory, preserving the original file organization.
+  - Handles large-scale conversions efficiently.
+
+- **Audio Format Support**:
   - Supports conversion between **WAV** and **MP3** formats.
   - Uses high-performance libraries like **miniaudio** and **LAME** for encoding.
 
@@ -67,6 +72,12 @@ vcpkg install imgui[sfml-binding] sfml fmt libmp3lame miniaudio
 ---
 
 ## Usage
+
+### Batch Conversion
+
+- **Convert Entire Directories**: Select an input directory containing audio files, and Bison Audio Converter will convert all supported files within that directory and its subdirectories.
+- **Preserve Directory Structure**: The output directory will mimic the structure of the input directory, maintaining the original file organization.
+- **Scalability**: Efficiently handles large-scale conversions, even with millions of files.
 
 ### Log Window
 
