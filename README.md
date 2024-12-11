@@ -38,7 +38,7 @@
 
 ### Conversion Progress
 
-![Conversion Progress](screenshots/Screenshot_2024-12-11_204405.png)
+![Conversion Progress]([screenshots/Screenshot_2024-12-11_204405.png](https://github.com/rambod/BisonAudioConverter/blob/master/screenshots/Screenshot%202024-12-11%20204405.png))
 
 
 ---
